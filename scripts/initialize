@@ -175,9 +175,11 @@ cd ./node_modules && npm install -g --default https://github.com/timechain-acade
 npm install -g --default https://github.com/timechain-academy/fs-xattr.git
 #npm install -g --default fs-xattr@0.4.0
 #nvm alias fs-xattr@0.1.17 fs-xattr@0.4.0
+if [[ "$OSTYPE" == "darwin"* ]]; then
 #npm clean-install -g fs-xattr@0.1.17 fsevents@2.3.2
 npm install -s --default fsevents@2.3.2
 #nvm alias fsevents@2.3.2 fsevents@1.2.13
+fi
 #npm install -g electron
 #npm install -g electron@8
 #npm install -g electron@9
