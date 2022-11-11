@@ -20,7 +20,11 @@ echo "$ARCH" | awk '{print tolower($0)}'
 echo OSTYPE:
 echo "$OSTYPE" | awk '{print tolower($0)}'
 }
- npm-installs(){
+
+
+
+
+npm-installs(){
 
 node -v
 npm -v
@@ -94,42 +98,12 @@ npm install gulp-cli@^2.3.0
 
 }
 
- build-sequence(){
+################################################################################
+build-sequence(){
 
 npm rebuild
 
 }
-
-checkbrew
-source nodecheck.sh
-nodecheck
-
-NODE_VERSION_CHECK=$(node -e "const v = process.version.match(/(\\d+)\.(\\d+)\.(\\d+)/).slice(1).map(_ => parseInt(_)); console.log(v[0] >= 13 || (v[0] >= 12 && v[1] >= 22 && v[2] >= 12))")
-if $NODE_VERSION_CHECK -eq "true" ;
-then
-    echo "NodeJS is at least 12.22.12"
-		echo $NODE_VERSION_CHECK
-fi
-
-justDoIt(){
-#nvm environment config
-nvm install $NODE_VERSION
-nvm use $NODE_VERSION
-npm install
-npm-installs
-}
-
-if [ "$(whoami)" != "runner" ]; then
-echo "Try:"
-echo "source ~/.bashrc"
-echo "if nvm command not available..."
-justDoIt
-else
-export NVM_DIR="/home/runner/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-sudo justDoIt
-fi
 
 ###############################################################################
 checkbrew() {
@@ -157,6 +131,7 @@ checkbrew() {
         checkbrew
     fi
 }
+################################################################################
 checknvm() {
     if hash brew 2>/dev/null; then
         if ! hash curl 2>/dev/null; then
@@ -173,6 +148,7 @@ checknvm() {
 
     fi
 }
+################################################################################
 checkraspi(){
     echo 'Checking Raspi'
     if [ -e /etc/rpi-issue ]; then
@@ -258,3 +234,41 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
+
+################################################################################
+############################
+#checkbrew
+source nodecheck.sh
+nodecheck
+
+################################################################################
+NODE_VERSION_CHECK=$(node -e "const v = process.version.match(/(\\d+)\.(\\d+)\.(\\d+)/).slice(1).map(_ => parseInt(_)); console.log(v[0] >= 13 || (v[0] >= 12 && v[1] >= 22 && v[2] >= 12))")
+if $NODE_VERSION_CHECK -eq "true" ;
+then
+    echo "NodeJS is at least 12.22.12"
+		echo $NODE_VERSION_CHECK
+fi
+
+################################################################################
+function doit(){
+#nvm environment config
+nvm install $NODE_VERSION
+nvm use $NODE_VERSION
+npm install
+npm-installs
+}
+
+################################################################################
+if [ "$(whoami)" != "runner" ]; then
+echo "Try:"
+echo "source ~/.bashrc"
+echo "if nvm command not available..."
+doit
+else
+export NVM_DIR="/home/runner/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+sudo doit
+fi
+
+################################################################################
