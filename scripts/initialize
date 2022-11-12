@@ -204,7 +204,7 @@ npm install electron@13.0.0
 
 #npm install -g sqlite3
 #npm install -g sqlite3@4
-#npm install sqlite3@4.1.0
+npm install sqlite3@4.1.0
 #npm install -g --default sqlite3@5.0.0
 #npm install -g sqlite3@5.1.2
 
