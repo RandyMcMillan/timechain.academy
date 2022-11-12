@@ -165,14 +165,36 @@ npm -v
 #npm install -g fs-xattr@0.1
 #npm install -g fs-xattr@0.2
 #npm install -g fs-xattr@0.3
-#npm install -g --default https://github.com/timechain-academy/fs-xattr.git
 #npm install -g --default fs-xattr@0.1.17
 #nvm alias fs-xattr@0.1.17 fs-xattr@0.4.0
 
 
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
 echo "fsevent installed globally on macos!! NOT in package.json!!!"
+
+#npm install -g sqlite3
+#npm install -g sqlite3@4
+#npm install sqlite3@4.1.0
+#npm install -g --default sqlite3@5.0.0
+#npm install -g sqlite3@5.1.2
+
+
+
+alias python=$(which python3)
+npm install -g @mapbox/node-pre-gyp
+npm install -g node-gyp
+	if [[ "$ARCH" == "arm64" ]]; then
+			echo "arm64"
+			npm install -g sqlite3@5.1.2
+			npm install -g --default fs-xattr@^0
+			#npm install -g https://github.com/timechain-academy/fs-xattr.git#d9ffa8c0df504c8d140ccc761cbf55f7aab4dbcf
+		else
+			echo "not arm64"
+			npm install -g --default fs-xattr@0.1.17
+			#npm install -g https://github.com/timechain-academy/fs-xattr.git#d9ffa8c0df504c8d140ccc761cbf55f7aab4dbcf
+	fi
+
 #	npm install -g --default fsevents@2.3.2
 #	npm install -g                          https://github.com/timechain-academy/node-appdmg#dda1cc89d9ce9b00cec76ee9399772b0d5d4ecd3
 	#nvm alias fsevents@2.3.2 fsevents@1.2.13
@@ -202,11 +224,6 @@ npm install electron@13.0.0
 #npm install -g --default --force knex@0.21.0
 #npm install -g --default --force knex-on-conflict-do-nothing@1.0.0
 
-#npm install -g sqlite3
-#npm install -g sqlite3@4
-npm install sqlite3@4.1.0
-#npm install -g --default sqlite3@5.0.0
-#npm install -g sqlite3@5.1.2
 
 #npm install -g --default fs
 #npm install -g fs/promises
