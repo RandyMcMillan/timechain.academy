@@ -80,6 +80,10 @@ install:
 ##	:	build
 build:
 	@cd ./scripts && npm run-script build
+.PHONY:start
+##	:	start
+start:
+	@cd ./scripts && npm run-script start
 ##	:	rebuild
 rebuild:
 	@cd ./scripts && npm run-script rebuild
