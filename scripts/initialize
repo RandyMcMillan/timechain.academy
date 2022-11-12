@@ -181,7 +181,7 @@ fi
 
 
 #npm install -s --default electron@11.0.0-beta.18
-#npm install electron@13.0.0
+npm install electron@13.0.0
 #nvm alias @electron/asar asar@3.2.0 
 
 #npm install -g @mapbox/node-pre-gyp
