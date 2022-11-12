@@ -23,6 +23,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: make
+      run: |
+        make
+
+    - name: make install
+      run: |
+        make install
+
+    - name: make build
+      run: |
+        make build
+
     - name: npm install
       run: |
         cd ./scripts && npm install
@@ -30,3 +42,4 @@ jobs:
     - name: npm run build
       run: |
         cd ./scripts && npm run build
+
