@@ -2,7 +2,7 @@
   "name": "beakerbrowser",
   "devDependencies": {
     "browserify": "^16.0.0",
-    "electron": "13.0.0",
+    "electron": "^13.0.0",
     "electron-builder": "^22.6.0",
     "electron-notarize": "^0.3.0",
     "eslint": "^4.5.0",
@@ -118,6 +118,7 @@
   "dependencies": {
     "electron-updater": "^5.0.0",
     "fs-extra": "^10.1.0",
-    "fs.promises": "^0.1.2"
+    "fs.promises": "^0.1.2",
+    "sqlite3": "^4.1.0"
   }
 }
