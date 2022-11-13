@@ -8,7 +8,7 @@
   "copyright": "© 2022, TimeChain.Academy",
   "main": "main.build.js",
   "dependencies": {
-    "@beaker/dat-serve-resolve-path": "^1.0.0",
+    "@beaker/dat-serve-resolve-path": "git+https://github.com/timechain-academy/dat-serve-resolve-path.git",
     "@beaker/library-tools": "^1.0.0",
     "@cliqz/adblocker": "^1.17.0",
     "abort-controller": "^3.0.0",
