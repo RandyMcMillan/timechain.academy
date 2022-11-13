@@ -9,7 +9,7 @@
   "main": "main.build.js",
   "dependencies": {
     "@beaker/dat-serve-resolve-path": "git+https://github.com/timechain-academy/dat-serve-resolve-path.git",
-    "@beaker/library-tools": "^1.0.0",
+    "@beaker/library-tools": "git+https://github.com/timechain-academy/library-tools.git",
     "@cliqz/adblocker": "^1.17.0",
     "abort-controller": "^3.0.0",
     "ajv": "^6.10.2",
@@ -87,7 +87,7 @@
     "slugify": "^1.3.5",
     "speedometer": "^1.0.0",
     "split2": "^2.2.0",
-    "sqlite3": "^5.1.2",
+    "sqlite3": "^4.1.0",
     "stream-throttle": "^0.1.3",
     "streamx": "^2.6.0",
     "textextensions": "^2.5.0",
