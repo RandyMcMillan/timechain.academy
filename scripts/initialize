@@ -144,6 +144,14 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
+function rebuild(){
+
+npm uninstall electron sqlite
+npm install --save -D electron@13.0.0
+npm install sqlite3@4.1.0
+
+}
+
 function npm-installs(){
 
 node -v
@@ -172,7 +180,8 @@ npm -v
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-echo "fsevent installed globally on macos!! NOT in package.json!!!"
+#echo "fsevent installed globally on macos!! NOT in package.json!!!"
+echo
 #	npm install -g --default fsevents@2.3.2
 #	npm install -g                          https://github.com/timechain-academy/node-appdmg#dda1cc89d9ce9b00cec76ee9399772b0d5d4ecd3
 	#nvm alias fsevents@2.3.2 fsevents@1.2.13
@@ -181,6 +190,8 @@ fi
 
 
 #npm install -s --default electron@11.0.0-beta.18
+
+
 #npm install electron@13.0.0
 #nvm alias @electron/asar asar@3.2.0 
 
@@ -204,7 +215,7 @@ fi
 
 #npm install -g sqlite3
 #npm install -g sqlite3@4
-npm install sqlite3@4.1.0
+#npm install sqlite3@4.1.0
 #npm install -g --default sqlite3@5.0.0
 #npm install -g sqlite3@5.1.2
 
@@ -231,13 +242,11 @@ npm install sqlite3@4.1.0
 #npm install -g cross-spawn-async@2.2.5
 #nvm alias c-g ross-spawn cross-spawn-async@2.2.5
 
-}
-
-function build-sequence(){
-
-npm rebuild
+rebuild
+pushd ../app && rebuild && popd
 
 }
+
 
 #nvm environment config
 nvm install 14 && nvm use 14
