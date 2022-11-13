@@ -147,8 +147,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 function rebuild(){
 
 npm uninstall electron sqlite
-npm install --save -D electron@13.0.0
-npm install sqlite3@4.1.0
+npm install --save -D  electron@13.0.0
+npm install --save    @electron/asar
+#npm install sqlite3@4.2.0
+npm install sqlite3@5
 
 }
 
@@ -156,6 +158,14 @@ function npm-installs(){
 
 node -v
 npm -v
+
+npm install -g -D gulp@4.0.2
+npm install -D gulp-cli
+npm install -g npm-lifecycle
+npm install -g node-gyp
+
+#npm install fs-xattr@0.1.17
+#npm install macos-alias@0.2.11
 
 # nvm alias 14 12
 #npm install gulp
