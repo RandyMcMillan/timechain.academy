@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@beaker/dat-legacy-tools": "^1.1.0"
+    "@beaker/dat-legacy-tools": "1.1.0",
+    "re2": "1.17.2",
+    "url-regex-safe": "3.0.0"
   }
 }
