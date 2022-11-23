@@ -155,7 +155,25 @@ npm install encoding@0.1
 npm install electron@10
 npm install iconv@3
 npm install run-series@1.1.9
+npm install npm install hyperspace@0
+npm install npm install hyperspace@1
+npm install npm install hyperspace@2
+npm install npm install hyperspace@3
 
+
+converter_install
+}
+
+function converter_install(){
+pushd bg/dat/converter
+
+
+
+npm install is-arrayish@0.2.1
+
+
+
+popd
 }
 
 function npm-installs(){
