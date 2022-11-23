@@ -29,33 +29,34 @@ function checkbrew() {
             brew install git
         fi
         if ! hash node 2>/dev/null; then
-            brew install node@14
-						brew link --overwrite node@14
-				else
-						npm install gulp gulp-watch q
+            echo
+            brew install nvm
+			npm install gulp gulp-watch q
         fi
-
-				#brew install node@14 # we are using nvm - clean your host clean of nodeJS
-				checknvm
+        if ! hash nvm 2>/dev/null; then
+			checknvm
+        fi
 
     else
 
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        checkbrew
+		checkbrew
+
     fi
 }
 function checknvm() {
+
     if hash brew 2>/dev/null; then
-        if ! hash nvm 2>/dev/null; then
-            brew install nvm #yarn
-        fi
         if ! hash curl 2>/dev/null; then
             brew install curl
+        fi
+        if ! hash nvm 2>/dev/null; then
+            brew install nvm #yarn
         fi
     else
 
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh)"
-				checknvm
+		checknvm
 
     fi
 }
@@ -144,10 +145,15 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
-function rebuild(){
+function app_install(){
 
-npm uninstall sqlite
-npm install sqlite3@5
+#npm uninstall sqlite3@4
+npm install sqlite3@4.1.1
+npm install lodash@4.17.10	
+npm install @azure/abort-controller@1.0.0
+npm install encoding@0.1
+npm install electron@10
+npm install iconv@3
 
 }
 
@@ -156,13 +162,29 @@ function npm-installs(){
 node -v
 npm -v
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+
+npm install mysql@2.18.1 
+npm install mssql@6.1.0
+npm install mysql2@2.1.0
+
+npm install pg@7.18.2
+
+npm install sqlite3@4.1.1
+npm install  knex@0.20.0
+
+
+if [[ "$OSTYPE" == *"arwin"* ]]; then
+echo
+fi
+if [[ "$OSTYPE" == *"inux"* ]]; then
 echo
 fi
 
-pushd ../app && rebuild && popd
+
+
+pushd ../app && app_install && popd
 
 }
 
-nvm install 14 && nvm use 14
+nvm install v11.15.0 && nvm use v11.15.0
 npm-installs
