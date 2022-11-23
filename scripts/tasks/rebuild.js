@@ -28,7 +28,7 @@ gulp.task('rebuild', gulp.series(async () => {
   env.HOME = path.join(homedir, '.electron-gyp')
   for (let mod of MODULES_NEEDING_REBUILD) {
     // await runAsync(`npm rebuild ${mod} --runtime=electron --target=11.0.0-beta.18 --disturl=https://electronjs.org/headers --build-from-source`, {cwd, env, shell: true})
-    await runAsync(`npm rebuild ${mod} --runtime=electron --target=13.0.0 --disturl=https://electronjs.org/headers --build-from-source`, {cwd, env, shell: true})
+    await runAsync(`npm rebuild ${mod} --runtime=electron --target=10.0.0 --disturl=https://electronjs.org/headers --build-from-source`, {cwd, env, shell: true})
   }
   await runAsync(`npm run build`, {shell: true})
 }))
