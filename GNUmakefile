@@ -89,7 +89,7 @@ rebuild:
 	@rm -rf $(find . -name package-lock.json)
 	@rm -rf $(find . -name node_modules)
 	@rm -rf ./scripts/node_modules/electron
-	@cd ./scripts && npm install electron@13.0.0
+	@cd ./scripts && npm install electron@10
 	@cd ./scripts && npm run-script rebuild
 ##	:	burnthemall - hard reset and build
 burnthemall:
