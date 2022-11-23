@@ -4,7 +4,8 @@ SHELL									:= /bin/bash
 PWD										?= pwd_unknown
 #space:=
 #space+=
-
+NODE_VERSION							:=v11.15.0
+export NODE_VERSION
 # CURRENT_PATH := $(subst $(lastword $(notdir $(MAKEFILE_LIST))),,$(subst $(space),\$(space),$(shell realpath '$(strip $(MAKEFILE_LIST))')))
 # export CURRENT_PATH
 
@@ -154,7 +155,7 @@ exec: executable
 .ONESHELL:
 ##	:	nvm		 	install node version manager
 nvm: executable
-	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || git pull -C $(HOME)/.nvm
+	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
 
 .PHONY: all
 ##	:	all			execute installer scripts
@@ -174,7 +175,10 @@ node:
 
 clean: clean-all
 clean-all:
-	rm -rf $(find . -name node_modules)
+	@rm -rf $(find . -name node_modules)
+#	@rm -rf $(find . -name package-lock.json)
+clean-nvm:
+	rm -rf ~/.nvm
 
 -include node.mk
 # vim: set noexpandtab:
