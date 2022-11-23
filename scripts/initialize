@@ -154,6 +154,7 @@ npm install @azure/abort-controller@1.0.0
 npm install encoding@0.1
 npm install electron@10
 npm install iconv@3
+npm install run-series@1.1.9
 
 }
 
@@ -162,6 +163,8 @@ function npm-installs(){
 node -v
 npm -v
 
+npm install node-pre-gyp@0.17.0
+npm install gulp@4.0.2
 
 npm install mysql@2.18.1 
 npm install mssql@6.1.0
