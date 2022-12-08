@@ -39,7 +39,15 @@ jobs:
 
     - name: make build
       run: |
-        make build
+        make   build
+
+    - name: make rebuild
+      run: |
+        make rebuild
+
+    - name: make start
+      run: |
+        make start
 
     - name: npm install
       run: |
