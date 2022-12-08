@@ -4,8 +4,10 @@ SHELL									:= /bin/bash
 PWD										?= pwd_unknown
 #space:=
 #space+=
-NODE_VERSION							:=v11.15.0
+#NODE_VERSION							:=v11.15.0
+NODE_VERSION							:=v12
 export NODE_VERSION
+
 # CURRENT_PATH := $(subst $(lastword $(notdir $(MAKEFILE_LIST))),,$(subst $(space),\$(space),$(shell realpath '$(strip $(MAKEFILE_LIST))')))
 # export CURRENT_PATH
 
@@ -155,7 +157,7 @@ exec: executable
 .ONESHELL:
 ##	:	nvm		 	install node version manager
 nvm: executable
-	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
+	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
 
 .PHONY: all
 ##	:	all			execute installer scripts
