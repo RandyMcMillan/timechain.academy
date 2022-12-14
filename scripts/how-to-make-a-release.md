@@ -14,7 +14,7 @@ SO HELP ME GOD if you forget this I'll kill you.
 
 ## Apply the following patches manually to the scripts/node_modules
 
-`app-builder-lib/out/util/AppFileWalker.js` this one stops electron-bunder from removing ./app/bg/dat/converter/node_modules
+`app-builder-lib/out/util/AppFileWalker.js` this one stops electron-bundler from removing ./app/bg/dat/converter/node_modules
 
 ```
 if (!nodeModulesFilter(file, fileStat)) {
