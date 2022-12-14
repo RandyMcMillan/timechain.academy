@@ -59,54 +59,45 @@ export GIT_REPO_NAME
 GIT_REPO_PATH							:= $(HOME)/$(GIT_REPO_NAME)
 export GIT_REPO_PATH
 
-##make	:	command			description
-.ONESHELL:
-.PHONY:-
-.PHONY:	init
-.PHONY:	help
-.PHONY:	report
 .SILENT:
-##	:
+-:## -
+	#NOTE: 2 hashes are detected as 1st column output with color
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?##/ {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
--: help
-
-##	:	init
-init:
+init: clean ## init clean
 #	@["$(shell $(SHELL))" == "/bin/zsh"] && zsh --emulate sh
 	@cd ./scripts && ./initialize
 
 .PHONY:install
-##	:	install - ./scripts npm install
-install:
+install:## - ./scripts && npm install
 	@cd ./scripts && npm install
 .PHONY:build
-##	:	build
-build:
+build:## build
 	@cd ./scripts && npm run-script build
 .PHONY:start
-##	:	start
-start:
+start:## start
 	@cd ./scripts && npm run-script start
-##	:	rebuild
-rebuild:
+rebuild:## rebuild
 	@rm -rf $(find . -name package-lock.json)
+	@rm -rf $(find . -name yarn.lock)
 	@rm -rf $(find . -name node_modules)
 	@rm -rf ./scripts/node_modules/electron
 	@cd ./scripts && npm install electron@10
 	@cd ./scripts && npm run-script rebuild
-##	:	burnthemall - hard reset and build
-burnthemall:
+burnthemall:## burnthemall - hard reset & build
 	@cd ./scripts && npm run burnthemall
-##	:	release - build distribution
-release:
+release:## release - build distribution
 	@cd ./scripts && npm run release
 
-##	:	help
-help:
+help:## help
 	@echo ''
+	#NOTE: 2 hashes are detected as 1st column output with color
 	@sed -n 's/^##ARGS//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 	# @sed -n 's/^.PHONY//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
+	@sed -n 's/^# //p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/# /'
+	@sed -n 's/^## //p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/## /'
+	@sed -n 's/^### //p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/### /'
 	@echo ""
 	@echo ""
 	@echo ""
@@ -118,8 +109,7 @@ help:
 	@echo ""
 	@echo ""
 
-##	:	report			environment args
-report:
+report:## report					environment args
 	@echo ''
 	@echo ' TIME=${TIME}	'
 	@echo ' CURRENT_PATH=${CURRENT_PATH}	'
@@ -142,45 +132,42 @@ report:
 #	@sed -n 's/^.PHONY//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
 .PHONY: command
-##	:	command		 	command sequence
-command: executable
+command: executable ## command		example
 	@echo "command sequence here..."
 
 .PHONY: executable
-executable:
+executable: ## executable
 	chmod +x ./scripts/initialize
 .PHONY: exec
-##	:	executable		make shell scripts executable
-exec: executable
+exec: executable ## exec	make shell scripts executable
 
 .PHONY: nvm
 .ONESHELL:
-##	:	nvm		 	install node version manager
-nvm: executable
+nvm: executable ## nvm
 	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
 
 .PHONY: all
-##	:	all			execute installer scripts
-all:- executable install init build
+all:- executable install init build ## all - executable install init build
 	@echo "make release"
 	@echo "make start"
 
 .PHONY: submodule submodules
-submodule: submodules
-submodules:
+submodule: submodules ## submodule
+submodules: ## submodules
 	git submodule update --init --recursive
 	git submodule foreach 'git fetch origin; git checkout $$(git rev-parse --abbrev-ref HEAD); git reset --hard origin/$$(git rev-parse --abbrev-ref HEAD); git submodule update --recursive; git clean -dfx'
 
 .PHONY: node
-node:
+node: ## node
 	$(MAKE) -f node.mk
 
-clean: clean-all
-clean-all:
+clean: ## clean
+	@rm -rf $(find . -name package-lock.json)
+	@rm -rf $(find . -name yarn.lock)
+clean-nvm: ## clean-nvm
+	@rm -rf ~/.nvm
+clean-all: clean clean-nvm ## clean-all
 	@rm -rf $(find . -name node_modules)
-#	@rm -rf $(find . -name package-lock.json)
-clean-nvm:
-	rm -rf ~/.nvm
 
 -include node.mk
 # vim: set noexpandtab:
