@@ -1,11 +1,11 @@
 {
-  "name": "beaker-browser",
-  "productName": "Beaker Browser",
-  "description": "An Experimental Peer-to-Peer Web Browser.",
-  "homepage": "https://beakerbrowser.com/",
-  "version": "1.1.0",
-  "author": "Blue Link Labs <support@beakerbrowser.com>",
-  "copyright": "© 2020, Blue Link Labs",
+  "name": "timechain.academy",
+  "productName": "TimeChain.Academy",
+  "description": "Decentralized Education.",
+  "homepage": "https://timechain.academy/",
+  "version": "0.0.0-beta.1",
+  "author": "TimeChain.Academy <support@timechain.academy>",
+  "copyright": "© 2022, TimeChain.Academy",
   "main": "main.build.js",
   "dependencies": {
     "@beaker/dat-serve-resolve-path": "^1.0.0",
