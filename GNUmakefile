@@ -19,6 +19,35 @@ PWD										?= pwd_unknown
 #v12.22.8/  16-Dec-2021 23:40
 #v12.22.9/  10-Jan-2022 23:15
 
+PYTHON                                  := $(shell which python)
+export PYTHON
+PYTHON2                                 := $(shell which python2)
+export PYTHON2
+PYTHON3                                 := $(shell which python3)
+export PYTHON3
+
+NODE_GYP_FORCE_PYTHON                   := $(shell which python)
+export NODE_GYP_FORCE_PYTHON
+
+PIP                                     := $(shell which pip)
+export PIP
+PIP2                                    := $(shell which pip2)
+export PIP2
+PIP3                                    := $(shell which pip3)
+export PIP3
+
+python_version_full := $(wordlist 2,4,$(subst ., ,$(shell python3 --version 2>&1)))
+python_version_major := $(word 1,${python_version_full})
+python_version_minor := $(word 2,${python_version_full})
+python_version_patch := $(word 3,${python_version_full})
+
+my_cmd.python.3 := $(PYTHON3) some_script.py3
+my_cmd := ${my_cmd.python.${python_version_major}}
+
+PYTHON_VERSION                         := ${python_version_major}.${python_version_minor}.${python_version_patch}
+PYTHON_VERSION_MAJOR                   := ${python_version_major}
+PYTHON_VERSION_MINOR                   := ${python_version_minor}
+
 NODE_VERSION							:=v12.22.0
 export NODE_VERSION
 PACKAGE_MANAGER							:=yarn
@@ -134,6 +163,16 @@ report:## report					environment args
 	@echo ' THIS_DIR=${THIS_DIR}	'
 	@echo ' PROJECT_NAME=${PROJECT_NAME}	'
 	@echo ' NODE_VERSION=${NODE_VERSION}	'
+	@echo ' PYTHON=${PYTHON}'
+	@echo ' PYTHON2=${PYTHON2}'
+	@echo ' PYTHON3=${PYTHON3}'
+	@echo ' NODE_GYP_FORCE_PYTHON=${NODE_GYP_FORCE_PYTHON}'
+	@echo ' PYTHON_VERSION=${PYTHON_VERSION}'
+	@echo ' PYTHON_VERSION_MAJOR=${PYTHON_VERSION_MAJOR}'
+	@echo ' PYTHON_VERSION_MINOR=${PYTHON_VERSION_MINOR}'
+	@echo ' PIP=${PIP}'
+	@echo ' PIP2=${PIP2}'
+	@echo ' PIP3=${PIP3}'
 	@echo ' GIT_USER_NAME=${GIT_USER_NAME}	'
 	@echo ' GIT_USER_EMAIL=${GIT_USER_EMAIL}	'
 	@echo ' GIT_SERVER=${GIT_SERVER}	'
@@ -178,6 +217,25 @@ submodules: ## submodules
 .PHONY: node
 node: ## node
 	$(MAKE) -f node.mk
+
+.PHONY: venv
+venv:## create python3 virtualenv .venv
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	);
+	@echo "To activate (venv)"
+	@echo "try:"
+	@echo ". .venv/bin/activate"
+	@echo "or:"
+	@echo "make test-venv"
+##:	test-venv            source .venv/bin/activate; pip install -r requirements.txt;
+test-venv:## 	test virutalenv .venv
+	# insert test commands here
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	);
 
 clean: ## clean
 	rm -rf $(find . -name package-lock.json)
