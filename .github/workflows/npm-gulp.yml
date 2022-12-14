@@ -1,0 +1,59 @@
+name: NodeJS with Gulp
+
+on:
+  push:
+    branches: [ "master", "**" ]
+  pull_request:
+    branches: [ "master", "**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-latest]
+        node-version: [14.x] #, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: make
+      run: |
+        make
+        make help
+        make init
+
+    - name: make
+      run: |
+        make nvm
+
+    - name: make install
+      run: |
+        make install
+
+    - name: make build
+      run: |
+        make   build
+
+    - name: make rebuild
+      run: |
+        make rebuild
+
+    - name: make start
+      run: |
+        make start
+
+    - name: npm install
+      run: |
+        cd ./scripts && npm install
+
+    - name: npm run build
+      run: |
+        cd ./scripts && npm run build
+
