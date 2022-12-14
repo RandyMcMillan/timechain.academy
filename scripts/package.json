@@ -1,5 +1,5 @@
 {
-  "name": "beakerbrowser",
+  "name": "timechain.academy",
   "devDependencies": {
     "browserify": "^16.0.0",
     "electron": "11.0.0-beta.18",
@@ -38,7 +38,7 @@
       "./node_modules/sodium-native/**",
       "./node_modules/hyperdrive-daemon/**"
     ],
-    "copyright": "© 2020, Blue Link Labs",
+    "copyright": "© 2022, TimeChain.Academy",
     "directories": {
       "app": "../app",
       "buildResources": "../build",
@@ -69,7 +69,7 @@
     "appImage": {
       "category": "Network",
       "desktop": {
-        "Name": "Beaker Browser",
+        "Name": "TimeChain.Academy",
         "GenericName": "Web Browser",
         "Type": "Application",
         "Terminal": false,
@@ -104,15 +104,15 @@
   },
   "collective": {
     "type": "opencollective",
-    "url": "https://opencollective.com/beaker",
+    "url": "https://opencollective.com/timechain.academy",
     "logo": "https://opencollective.com/opencollective/logo.txt"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/beakerbrowser/beaker"
+    "url": "https://github.com/timechain-academy/timechain.academy"
   },
   "bugs": {
-    "url": "https://github.com/beakerbrowser/beaker/issues"
+    "url": "https://github.com/timechain-academy/timechain.academy/issues"
   },
   "homepage": "https://beakerbrowser.com/",
   "dependencies": {}
