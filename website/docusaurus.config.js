@@ -8,8 +8,8 @@ const title = 'timechain.academy';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Podman Desktop',
-  url: 'https://podman-desktop.io',
+  title: 'TimeChain.Academy',
+  url: 'https://timechain.academy',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
