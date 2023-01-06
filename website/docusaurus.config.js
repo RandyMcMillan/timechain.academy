@@ -37,7 +37,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/containers/podman-desktop/tree/main/website',
+          editUrl: 'https://github.com/timechain-academy/timechain.academy/tree/main/website',
+
         },
         blog: {
           blogTitle: 'Podman Desktop blog!',
