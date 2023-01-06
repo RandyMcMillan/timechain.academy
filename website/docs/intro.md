@@ -1,50 +1,12 @@
 ---
-sidebar_position: 1
----
-
-# Introduction
-
-Let's discover **Podman Desktop in less than 5 minutes**.
-
-## Getting Started
-
-Get started by **[Downloading](/downloads) the product** for your operating system.
-
-### What you'll need
-
-- Podman 4.x
-  - Check there is a Podman machine running
-
-### Check Podman CLI is working
-
-Run the development server:
-
-```sh
-$ podman run quay.io/podman/hello
-!... Hello Podman World ...!
-
-         .--"--.
-       / -     - \
-      / (O)   (O) \
-   ~~~| -=(,Y,)=- |
-    .---. /`  \   |~~
- ~/  o  o \~~~~.----. ~~
-  | =(X)= |~  / (O (O) \
-   ~~~~~~~  ~| =(Y_)=-  |
-  ~~~~    ~~~|   U      |~~
-
-Project:   https://github.com/containers/podman
-Website:   https://podman.io
-Documents: https://docs.podman.io
-Twitter:   @Podman_io
-```
----
 title: What is TimeChain Academy?
 date: 17 DEC 2022
 author: TCA author
 description: What TimeChain Academy is all about and how to get started.
 navigation: true
 image: "posts/387210_timechain.png"
+sidebar_position: 1
+
 ---
 
 # What is TimeChain Academy?
@@ -70,6 +32,15 @@ Not only is this approach great for beginners, but it's also valuable for experi
 # I want in! How do I get started? 
 
 Great! Here's two places to help expand your mind:
+
+## Getting Started
+
+Get started by **[Downloading](/downloads) the product** for your operating system.
+
+### What you'll need
+
+- Podman 4.x
+  - Check there is a Podman machine running
 
 1. [Interact](https://timechain-web.vercel.app/posts/howtousesite) with this Site directly.
 
