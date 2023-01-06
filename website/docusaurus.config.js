@@ -99,7 +99,7 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/posts/1.Intro',
+                to: '/docs/intro',
               },
               {
                 label: 'Troubleshooting',
