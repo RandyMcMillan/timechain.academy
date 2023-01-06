@@ -99,7 +99,7 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/intro',
+                to: '/docs/posts/1.Intro',
               },
               {
                 label: 'Troubleshooting',
@@ -116,27 +116,15 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/containers/podman-desktop',
+                href: 'https://github.com/timechain-academy/timechain.academy',
               },
               {
                 label: 'General chat (bridged): #general on Discord',
-                href: 'https://discordapp.com/invite/TCTB38RWpf',
+                href: 'https://discord.gg/DrpputYbFx',
               },
               {
-                label: 'General chat (bridged): #podman-desktop@libera.chat on IRC',
-                href: 'https://libera.chat',
-              },
-              {
-                label: 'General chat (bridged): #podman-desktop@fedora.im on Matrix',
-                href: 'https://fedora.im',
-              },
-              {
-                label: 'Kubernetes chat: Join #podman-desktop on the Kubernetes Slack',
-                href: 'https://slack.k8s.io/',
-              },
-              {
-                label: 'Podman Desktop Planning & Roadmap',
-                href: 'https://github.com/containers/podman-desktop/projects?type=beta',
+                label: 'TimeChain.Academy Planning & Roadmap',
+                href: 'https://github.com/timechain-academy/timechain.academy/projects?type=beta',
               },
             ],
           },
@@ -150,13 +138,15 @@ const config = {
       },
       algolia: {
         // The application ID provided by Algolia
+        // TODO:
         appId: 'MR01ANKQ9S',
 
         // Public API key: it is safe to commit it
+        // TODO:
         apiKey: '20bda7620dbcebd6a354840b4f92ac8e',
 
         // The index name to query
-        indexName: 'podman-desktop',
+        indexName: 'timechain-academy',
 
         // Optional
         contextualSearch: true,

@@ -101,11 +101,10 @@ function Hero() {
         <div className="text-center lg:w-2/3 w-full bg-hero-pattern bg-no-repeat bg-center">
           <div className="bg-white/30 dark:bg-transparent">
             <h1 className="title-font sm:text-4xl text-3xl lg:text-6xl mb-8 font-medium text-gray-900 dark:text-white">
-              Containers and Kubernetes for application developers
+              Timechain.Academy
             </h1>
             <p className="text-base md:text-lg">
-              Podman Desktop is an open source graphical tool enabling you to seamlessly work with containers and
-              Kubernetes from your local environment.
+              Learn Bitcoin & Lightning Developement!
             </p>
             <div className="flex-none">
               {/* With client mode, provides the link to the client browser */}
@@ -120,7 +119,7 @@ function Hero() {
         <div className="sm:pl-8 md:pl-12 lg:pl-36 text-center w-full">
           <img
             className="sm:w-full md:w-full lg:w-10/12"
-            alt="Podman Desktop home page"
+            alt="TimeChain.Academy home page"
             src="img/features/homepage.png"
           />
         </div>
@@ -381,6 +380,7 @@ function RunAnywhere() {
         <div className="flex flex-col text-center w-full mb-5">
           <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 dark:text-white sm:text-4xl md:mx-auto">
             Available on Windows, Mac and Linux
+            TODO: build gh-action distro - insert links website-src-pages-index.tsx
           </h2>
           <p className="text-base text-gray-700 md:text-lg dark:text-gray-300">
             Use the same UI across different operating systems
@@ -466,7 +466,8 @@ function MainFeatures() {
           <SectionTitle name="features" />
 
           <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 dark:text-white sm:text-4xl md:mx-auto">
-            Build, run and manage containers.
+            Learn using the Plebnet Playground Signet Stack
+            TODO: insert images - website-src-pages-index.tsx
           </h2>
         </div>
         <div className="container px-5 pb-5 mx-auto">
@@ -644,17 +645,12 @@ function Pods() {
 export default function Home(): JSX.Element {
   return (
     <Layout
-      title="Podman Desktop - Containers and Kubernetes"
-      description="Podman Desktop - An open source graphical tool for developing on containers and Kubernetes">
+      title="TimeChain.Academy - Learn Bitcoin & Lighting Developement"
+      description="TimeChain.Academy is dedicated to creating the next generation of Bitcoin & Lightning Developers">
       <TailWindThemeSelector />
       <Hero />
       <RunAnywhere />
       <MainFeatures />
-      <Pods />
-      <Configure />
-      <Extensibility />
-      <KeepUpToDate />
-      <EnterpriseReady />
     </Layout>
   );
 }
