@@ -14,8 +14,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'containers',
-  projectName: 'podman-desktop',
+  organizationName: 'TimeChain.Academy',
+  projectName: 'timechain.academy',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
   plugins: [
