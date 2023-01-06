@@ -86,7 +86,7 @@ const config = {
           { to: '/extend', label: 'Extend', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/containers/podman-desktop',
+            href: 'https://github.com/timechain-academy/timechain.academy',
             className: 'header-github-link',
             position: 'right',
           },
