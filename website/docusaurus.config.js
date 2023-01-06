@@ -46,12 +46,14 @@ const config = {
           postsPerPage: 'ALL',
           feedOptions: {
             type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Podman Desktop`,
+            copyright: `Copyright © ${new Date().getFullYear()} TimeChain.Academy`,
           },
+
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+
       }),
     ],
   ],
