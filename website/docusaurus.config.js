@@ -41,8 +41,8 @@ const config = {
 
         },
         blog: {
-          blogTitle: 'Podman Desktop blog!',
-          blogDescription: 'Discover articles about Podman Desktop',
+          blogTitle: 'TimeChain.Academy blog!',
+          blogDescription: 'Discover articles about TimeChain.Academy',
           postsPerPage: 'ALL',
           feedOptions: {
             type: 'all',
