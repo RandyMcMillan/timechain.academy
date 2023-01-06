@@ -69,7 +69,7 @@ const config = {
       navbar: {
         title,
         logo: {
-          alt: 'Podman Desktop Logo',
+          alt: 'TimeChain.Academy Logo',
           src: 'img/logo.svg',
           height: '56',
         },
