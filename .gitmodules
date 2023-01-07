@@ -1,0 +1,4 @@
+[submodule "buildResources"]
+	path = buildResources
+	url = git@github.com:timechain-academy/timechain-icons.git
+	branch = master
