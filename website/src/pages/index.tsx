@@ -101,10 +101,10 @@ function Hero() {
         <div className="text-center lg:w-2/3 w-full bg-hero-pattern bg-no-repeat bg-center">
           <div className="bg-white/30 dark:bg-transparent">
             <h1 className="title-font sm:text-4xl text-3xl lg:text-6xl mb-8 font-medium text-gray-900 dark:text-white">
-              Timechain.Academy
+              ₿itcoin and ⚡️ Lightning Development
             </h1>
             <p className="text-base md:text-lg">
-              Learn Bitcoin & Lightning Developement!
+              Using plebnet-playground signet!
             </p>
             <div className="flex-none">
               {/* With client mode, provides the link to the client browser */}
