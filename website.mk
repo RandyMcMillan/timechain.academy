@@ -1,5 +1,5 @@
 .PHONY:
-website:website-build website-serve## 	 website-build website-serve
+website:website-build website-serve## 	website-build website-serve
 website-clear:## 	pushd website && yarn run clear
 	@pushd website && yarn run clear
 website-build:## 	website-build
