@@ -89,6 +89,7 @@
     "xvfb-maybe": "^0.2.1"
   },
   "dependencies": {
+    "@algolia/client-search": "^4.9.1",
     "@docker/extension-api-client-types": "0.3.2",
     "@kubernetes/client-node": "^0.18.0",
     "@types/stream-json": "^1.7.3",
