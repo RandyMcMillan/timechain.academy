@@ -79,6 +79,7 @@
     "pify": "^3.0.0",
     "pretty-bytes": "^3.0.1",
     "pretty-hash": "^1.0.0",
+    "promises": "^0.2.5",
     "pump": "^3.0.0",
     "range-parser": "^1.2.0",
     "recursive-watch": "^1.1.4",
