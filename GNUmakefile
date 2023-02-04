@@ -1,4 +1,5 @@
-NODE_VERSION                           :=v13.14.0
+#NODE_VERSION                           :=v13.14.0
+NODE_VERSION                           :=v14.21.2
 export NODE_VERSION
 NODE_ALIAS                             :=v12.22.12
 #NODE_ALIAS                            :=v14.21.2
