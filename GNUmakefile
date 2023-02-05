@@ -2,9 +2,9 @@ NODE_VERSION                           :=v16.14.2
 export NODE_VERSION
 NODE_ALIAS                             :=v16.0.0
 export NODE_ALIAS
-PACKAGE_MANAGER                        :=yarn
+PACKAGE_MANAGER                        :=$(shell which npm)
 export PACKAGE_MANAGER
-PACKAGE_INSTALL                        :=add
+PACKAGE_INSTALL                        :=install
 export PACKAGE_INSTALL
 
 .ONESHELL:
