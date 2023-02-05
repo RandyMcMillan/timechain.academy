@@ -1,3 +1,12 @@
+NODE_VERSION                           :=v16.14.2
+export NODE_VERSION
+NODE_ALIAS                             :=v16.0.0
+export NODE_ALIAS
+PACKAGE_MANAGER                        :=yarn
+export PACKAGE_MANAGER
+PACKAGE_INSTALL                        :=add
+export PACKAGE_INSTALL
+
 .ONESHELL:
 .SILENT:
 command:## 	description
@@ -13,5 +22,13 @@ build-resources:## 	make icons in buildResources
 	@$(MAKE) -C buildResources
 
 -include website.mk
+# vim: set noexpandtab:
+# vim: set setfiletype make
+#
+.PHONY: nvm
+.ONESHELL:
+nvm:## 	nvm
+	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
+	@source ~/.bashrc && nvm alias $(NODE_ALIAS) $(NODE_VERSION)
 # vim: set noexpandtab:
 # vim: set setfiletype make
