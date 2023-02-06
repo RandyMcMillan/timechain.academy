@@ -30,6 +30,8 @@ build-resources:## 	make icons in buildResources
 nvm:## 	nvm
 	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
 	@source ~/.bashrc && nvm alias $(NODE_ALIAS) $(NODE_VERSION)
+nvm-clean:## 	nvm-clean
+	@rm -rf $(HOME)/.nvm
 -include yarn.mk
 # vim: set noexpandtab:
 # vim: set setfiletype make
